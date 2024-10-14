@@ -6,11 +6,15 @@ pkg update && pkg upgrade -y
 # Install the required packages
 pkg install python rust git -y
 
-# Clone the wcoin repository
-git clone https://github.com/elphador/wcoin.git
-
-# Change to the wcoin directory
-cd wcoin || exit
+# Check if the 'wcoin' directory already exists
+if [ -d "wcoin" ]; then
+    echo "'wcoin' directory already exists. Skipping cloning..."
+    cd wcoin || exit
+else
+    # Clone the wcoin repository if it doesn't exist
+    git clone https://github.com/elphador/wcoin.git
+    cd wcoin || exit
+fi
 
 # Install Python dependencies from the requirements.txt file
 pip install -r requirements.txt
