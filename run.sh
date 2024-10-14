@@ -42,13 +42,7 @@ if [ ! -d "WCoinBot" ]; then
     echo -e "${BLUE}Navigating to WCoinBot directory...${NC}"
     cd wcoin || { echo -e "${RED}Failed to navigate to WCoinBot directory!${NC}"; exit 1; }
 
-    # Copy .env-example to .env
-    echo -e "${BLUE}Copying .env-example to .env...${NC}"
-    cp .env-example .env
-
-    # Open .env file for editing
-    echo -e "${YELLOW}Opening .env file for editing...${NC}"
-    nano .env
+ 
 
 else
     # If the directory exists, navigate to it
